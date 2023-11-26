@@ -16,6 +16,8 @@
        // echo "<script>alert('$isActive');</script>"; 
 
         editBlog( $id, $title,  $description,  $image_url, $url,$isActive);
+        $_SESSION["message"]=$title." baslikli blog güncellendi";
+        $_SESSION["type"] = "success";
         header('Location: admin-blogs.php');
     }
 ?>

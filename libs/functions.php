@@ -62,7 +62,7 @@ function creatBlog(string $title, string $description, string $image_url,string 
             "image-url"=> $image_url,
             "likes"=> $likes,
             "comments"=>  $comments,
-            "is-aktiv"=> false
+            "is-active"=> false
         ));
 
 

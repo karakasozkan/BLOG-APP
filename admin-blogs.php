@@ -6,9 +6,11 @@
 
 ?>
 
-  <?php include "views/_header.php"; ?>  
- <?php include "views/_navbar.php"; ?> 
-    
+  <?php include "views/_header.php"; ?> 
+ 
+  <?php include "views/_navbar.php"; ?> 
+  <?php include "views/_message.php"; ?> 
+  
     <div class="container my-5">    
         <div class="row">
         <div class="col-12">

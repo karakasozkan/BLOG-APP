@@ -9,7 +9,9 @@
         $url = $_POST["url"];
 
         creatBlog( $title,  $description,  $image_url, $url);
-        header('Location: index.php');
+        $_SESSION["message"]=$title." isimli Blog eklendi";
+        $_SESSION["type"] = "success";
+        header('Location: admin-blogs.php');
     }
 ?>
 

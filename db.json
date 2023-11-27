@@ -48,27 +48,27 @@
             "is-active": true
         },
         {
-            "id": 6,
+            "id": 7,
             "title": "Film 7",
             "description": "Film 7 aciklama",
             "url": "film-7",
             "image-url": "3.jpeg",
             "likes": 0,
             "comments": 0,
-            "is-active": false
+            "is-active": true
         },
         {
-            "id": 7,
+            "id": 8,
             "title": "Film 8",
             "description": "Film 8 aciklama",
             "url": "film-8",
             "image-url": "1.jpeg",
             "likes": 0,
             "comments": 0,
-            "is-active": false
+            "is-active": true
         },
         {
-            "id": 4,
+            "id": 9,
             "title": "film-1",
             "description": "film-1 aciklama",
             "url": "film-1",

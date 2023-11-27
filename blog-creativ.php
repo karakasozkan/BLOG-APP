@@ -8,10 +8,18 @@
         $image_url = $_POST["image_url"];
         $url = $_POST["url"];
 
-        creatBlog( $title,  $description,  $image_url, $url);
-        $_SESSION["message"]=$title." isimli Blog eklendi";
-        $_SESSION["type"] = "success";
-        header('Location: admin-blogs.php');
+        if (creatBlog( $title,  $description,  $image_url, $url))
+        {
+            $_SESSION["message"]=$title." isimli Blog eklendi";
+            $_SESSION["type"] = "success";
+            header('Location: admin-blogs.php');
+
+        }
+        else
+        {
+            echo "Error";
+        }
+  
     }
 ?>
 

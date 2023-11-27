@@ -49,26 +49,37 @@ function createUser(string $username,string $password,string $name,string $email
 }
 
 
-function creatBlog(string $title, string $description, string $image_url,string $url, int $comments=0,int $likes=0,bool $vizyon=false) {
+function creatBlog(string $title, string $description, string $image_url,string $url) {
         
 
-    $db = getdata();
-    array_push($db["movies"],
-        array(
-            "id"=> count($db["movies"])+1,
-            "title"=>$title,
-            "description"=> $description,
-            "url"=> $url,
-            "image-url"=> $image_url,
-            "likes"=> $likes,
-            "comments"=>  $comments,
-            "is-active"=> false
-        ));
+    include "ayar.php";
+
+    # sorgu
+    $query = "INSERT INTO blogs(title, description, imageUrl, url, isActive) VALUES ('$title', '$description', '$imageUrl', '$url', 1)";
+    $result = mysqli_query($connection,$query);
+ 
+    mysqli_close($connection);
+ 
+    return $result;
+
+    // Json dan cekilen verilere dizi mantigiyla veri ekleme ve dosyaya tekrar yazdirma.
+    // $db = getdata();
+    // array_push($db["movies"],
+    //     array(
+    //         "id"=> count($db["movies"])+1,
+    //         "title"=>$title,
+    //         "description"=> $description,
+    //         "url"=> $url,
+    //         "image-url"=> $image_url,
+    //         "likes"=> $likes,
+    //         "comments"=>  $comments,
+    //         "is-active"=> false
+    //     ));
 
 
-    $myfile=fopen("db.json","w");
-    fwrite($myfile,json_encode($db,JSON_PRETTY_PRINT));
-    fclose($myfile);
+    // $myfile=fopen("db.json","w");
+    // fwrite($myfile,json_encode($db,JSON_PRETTY_PRINT));
+    // fclose($myfile);
 
 
 }

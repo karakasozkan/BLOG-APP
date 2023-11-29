@@ -3,22 +3,28 @@
     require "libs/functions.php";  
 
     $id=$_GET["id"];
-    $selectedMovie=getblogId($id);
-    
+    $result=getblogById($id);
+    $selectedMovie=mysqli_fetch_assoc($result);
 
     if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $title = $_POST["title"];
         $description = $_POST["description"];
-        $image_url = $_POST["image_url"]; 
+        $image_url = $_POST["imageUrl"]; 
         $url = $_POST["url"];
-        $isActive = isset($_POST["isActive"])? true : false;
+        $isActive = isset($_POST["isActive"])? 1 : 0;
 
        // echo "<script>alert('$isActive');</script>"; 
 
-        editBlog( $id, $title,  $description,  $image_url, $url,$isActive);
-        $_SESSION["message"]=$title." baslikli blog güncellendi";
-        $_SESSION["type"] = "success";
-        header('Location: admin-blogs.php');
+       $error=editBlog( $id, $title,  $description,  $image_url, $url,$isActive); 
+       if ($error) {
+            
+            $_SESSION["message"]=$title." baslikli blog güncellendi";
+            $_SESSION["type"] = "success";
+            header('Location: admin-blogs.php');
+        }
+        else {
+           echo "Error: ";
+        }
     }
 ?>
 
@@ -48,8 +54,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="image_url" class="form-label">Resim</label>
-                            <input type="text" class="form-control" name="image_url" id="image_url" value="<?php echo $selectedMovie["image-url"];?>">
+                            <label for="imageUrl" class="form-label">Resim</label>
+                            <input type="text" class="form-control" name="imageUrl" id="imageUrl" value="<?php echo $selectedMovie["imageUrl"];?>">
                         </div>
 
                         <div class="mb-3">
@@ -59,7 +65,7 @@
 
                         <div class="form-check mb-3">
                             <label for="isActive" class="form-check-label">is active</label>
-                            <input type="checkbox" class="form-check-input" name="isActive" id="isActive" <?php if ($selectedMovie["is-active"]) {echo "checked";}?>>
+                            <input type="checkbox" class="form-check-input" name="isActive" id="isActive" <?php if ($selectedMovie["isActive"]) {echo "checked";}?>>
                         </div>
 
                         <input type="submit" value="Submit" class="btn btn-primary">

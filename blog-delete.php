@@ -3,12 +3,18 @@
     require "libs/functions.php";  
 
     $id=$_GET["id"];
-    deleteblog($id);
+    if (deleteblog($id))
+    {
+        $_SESSION["message"]=$id." ID Blog deleted";
+        $_SESSION["type"] = "danger";
+        header('Location: admin-blogs.php');  
+    }
+    else
+    {
+        echo "Error:";
+    }
     
     
-    $_SESSION["message"]=$id." ID Blog silindi";
-    $_SESSION["type"] = "danger";
-    header('Location: admin-blogs.php');
 
      
 ?>

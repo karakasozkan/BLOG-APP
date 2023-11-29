@@ -15,40 +15,42 @@
         <div class="row">
         <div class="col-12">
 
+            <div class="card mb-1">
+                <div class="card-body">
+                    <a href="category-create.php" class="btn btn-primary">New category</a>
+                </div>    
+            </div>
+
+
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th style="width:80px;" >Image</th>
                         <th>Title</th>
+                        <th>Description</th>
                         <th>Url</th>
-                        <th style="width:30px;" >Likes</th>
-                        <th style="width:40px;" >Comment</th>
                         <th style="width:100px;" >is-Active</th>
                         <th style="width:150px;" ></th>
                     </tr>
 
                 </thead>
                 <tbody>
-                    <?php  foreach (getData()["movies"] as $movies) :?>
-                        
+                    <?php   $result= getBlogs(); while($movies=mysqli_fetch_assoc($result)):?>
                         <tr>
                             <td>
-                                <img src="img/<?php echo $movies["image-url"]?>" alt="" class="img-fluid">
+                                <img src="img/<?php echo $movies["imageUrl"]?>" alt="" class="img-fluid">
                             </td>
                             <td>
                                 <?php echo $movies["title"]?>
                             </td>
                             <td>
+                                <?php echo $movies["description"]?>
+                            </td>
+                            <td>
                                 <?php echo $movies["url"]?>
                             </td>
                             <td>
-                                <?php echo $movies["likes"]?>
-                            </td>
-                            <td>
-                                <?php echo $movies["comments"]?>
-                            </td>
-                            <td>
-                                <?php if ($movies["is-active"]):?>
+                                <?php if ($movies["isActive"]):?>
                                     <i class="fas fa-check"></i>
                                 <?php else:?>
                                     <i class="fas fa-times"></i>
@@ -60,7 +62,7 @@
                             </td>
 
                         </tr>
-                    <?php endforeach;?>
+                    <?php endwhile;?>
                 </tbody>
             </table>
 

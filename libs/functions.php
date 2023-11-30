@@ -189,11 +189,11 @@ function deleteCategory($id)
 
 function control_input($data)
 {
-          //  $data= strip_tags($data,"<b><br>"); //taglari siliyor. Haric tutmak istediklerini yaziyorsun
-          //  $data= strip_tags($data);
-            $data= htmlspecialchars($data); //text sadece text olarak cevirir.
-          //  $data= htmlentities($data);     //text sadece text olarak cevirir.  
-            $data= stripslashes($data);     //sql injection korunmak icin
+    //  $data= strip_tags($data,"<b><br>"); //taglari siliyor. Haric tutmak istediklerini yaziyorsun
+    //  $data= strip_tags($data);
+    //$data= htmlspecialchars($data); //text sadece text olarak cevirir.
+    $data= htmlentities($data);     //text sadece text olarak cevirir.  
+    $data= stripslashes($data);     //sql injection korunmak icin
  
     return $data;
 }

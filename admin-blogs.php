@@ -44,7 +44,7 @@
                                 <?php echo $movies["title"]?>
                             </td>
                             <td>
-                                <?php echo $movies["description"]?>
+                                <?php echo htmlspecialchars_decode($movies["description"]);?>
                             </td>
                             <td>
                                 <?php echo $movies["url"]?>

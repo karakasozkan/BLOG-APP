@@ -8,7 +8,7 @@
 
     if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $title = $_POST["title"];
-        $description = $_POST["description"];
+        $description = control_input($_POST["description"]);
         $image_url = $_POST["imageUrl"]; 
         $url = $_POST["url"];
         $isActive = isset($_POST["isActive"])? 1 : 0;
@@ -50,7 +50,7 @@
 
                         <div class="mb-3">
                             <label for="description" class="form-label">Açıklama</label>
-                            <textarea name="description" id="description" class="form-control"  ><?php echo $selectedMovie["description"];?></textarea>
+                            <textarea name="description" id="description" class="form-control"  ><?php echo htmlspecialchars_decode($selectedMovie["description"]);?></textarea>
                         </div>
 
                         <div class="mb-3">
@@ -81,5 +81,7 @@
 
 </div>
 
+<?php include "views/_ckEditor.php" ?>
 <?php include "views/_footer.php" ?>
+
 

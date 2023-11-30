@@ -112,5 +112,7 @@
 
 </div>
 
+<?php include "views/_ckeditor.php" ?>
 <?php include "views/_footer.php" ?>
+
 

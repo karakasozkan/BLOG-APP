@@ -31,7 +31,7 @@
                         <div class="col-md-9">
                             <div class="card-body">
                                 <h5 class="card-title"> <?php echo $item["title"];?></h5>
-                                <p class="card-text">   <?php echo $item["description"];?></p>
+                                <p class="card-text">   <?php echo htmlspecialchars_decode($item["description"]);?></p>
                               
                             </div>
                         </div>

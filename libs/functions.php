@@ -48,29 +48,6 @@ function createUser(string $username,string $password,string $name,string $email
 
 }
 
-
-function creatBlog(string $title, string $description, string $image_url,string $url, int $isActive=0) {
-        
-    include "ayar.php";
-   //sorgu
-   $query = "INSERT INTO blogs(title, description, imageUrl, url, isActive) VALUES ('$title', '$description', '$imageUrl', '$url', 1)";
-   $result = mysqli_query($connection,$query);
-   mysqli_close($connection);  
-       
-   return $result;
-}
-
-function creatCategory (string $categryname)
-{   include "ayar.php";
-    $query = "INSERT INTO categories(name) VALUES('$categryname')";
-    $result = mysqli_query($connection,$query);
-    mysqli_close($connection);  
-        
-    return $result;
- 
-}
-
-
 function getBlogs()
 {
     include "ayar.php";
@@ -81,26 +58,6 @@ function getBlogs()
     return $result;
 }
 
-function getCategories()
-{
-    include "ayar.php";
-    $query="SELECT * FROM categories";
-    $result = mysqli_query($connection,$query);
-    mysqli_close($connection);
-    
-    return $result;
-}
-
-function getblogById(int $movieid)
-{
-    include "ayar.php";
-    $query= "SELECT * FROM blogs WHERE id='$movieid'";
-    $result=mysqli_query($connection,$query);
-    mysqli_close($connection);
-    
-    return $result;
-
-}
 
 function editBlog( int $id, string $title,string  $description, string $imageUrl, string $url, int $isActive)
 {
@@ -131,6 +88,104 @@ function deleteblog($id)
     return $result;
 
 }
+
+function getCategories()
+{
+    include "ayar.php";
+    $query="SELECT * FROM categories";
+    $result = mysqli_query($connection,$query);
+    mysqli_close($connection);
+    
+    return $result;
+}
+
+function getblogById(int $movieid)
+{
+    include "ayar.php";
+    $query= "SELECT * FROM blogs WHERE id='$movieid'";
+    $result=mysqli_query($connection,$query);
+    mysqli_close($connection);
+    
+    return $result;
+
+}
+
+
+function creatBlog(string $title, string $description, string $image_url,string $url, int $isActive=0) {
+    //mysqli metodu
+    
+    include "ayar.php";
+   //sorgu
+   $query = $connection->prepare("INSERT INTO blogs(title, description, imageUrl, url, isActive) VALUES (?,?,?,?,?)");
+   $query->bind_param("ssssi",$title,$description, $image_url, $url, $isActive );
+    
+   $result=$query->execute();
+
+   $query->close();
+   $connection->close();
+   
+   return $result;
+}
+
+
+function creatCategory (string $categryname)//mysqli_stat_prapare yöntemi
+{   include "ayar.php";
+
+  
+    $query = $connection->prepare("INSERT INTO categories(name) VALUES(?)");
+    $query->bind_param("s", $categryname);
+    
+    $result=$query->execute();
+ 
+    $query->close();
+    $connection->close();
+        
+    return $result;
+ 
+}
+
+
+function getCategoryById(int $CategoryId)
+{
+    include "ayar.php";
+    $query= "SELECT * FROM categories WHERE id='$CategoryId'";
+    $result=mysqli_query($connection,$query);
+    mysqli_close($connection);
+    
+    return $result;
+
+}
+
+function editCategory( int $id, string $categoryName, int $isActive)
+{
+    
+    include "ayar.php";
+    
+    $query = "UPDATE categories SET name='$categoryName',isActive=$isActive WHERE id=$id";
+    $result = mysqli_query($connection,$query);
+    echo mysqli_error($connection);
+    return $result;
+
+}
+
+function deleteCategory($id)
+{
+
+    include "ayar.php";
+
+    $query = "DELETE FROM categories WHERE id=$id";
+
+    $result= mysqli_query($connection,$query);
+    $count=mysqli_affected_rows($connection);
+    
+    echo mysqli_error($connection);
+   
+    //mysqli_close($connection);
+    return $result;
+
+}
+
+
 
 function control_input($data)
 {

@@ -17,7 +17,7 @@
 
             <div class="card mb-1">
                 <div class="card-body">
-                    <a href="category-create.php" class="btn btn-primary">New category</a>
+                    <a href="blog-creativ.php" class="btn btn-primary">New Blog</a>
                 </div>    
             </div>
 

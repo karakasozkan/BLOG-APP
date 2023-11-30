@@ -27,6 +27,7 @@
                     <tr>
                         <th style="width:80px;" >ID</th>
                         <th>Category name</th>
+                        <th style="width:100px;" >is-Active</th>
                         <th style="width:130px;" ></th>
                     </tr>
 
@@ -41,8 +42,15 @@
                                 <?php echo $item["name"]?>
                             </td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="blog-edit.php?id=<?php echo $item["id"] ?>">Edit</a>
-                                <a class="btn btn-danger btn-sm" href="blog-delete.php?id=<?php echo $item["id"] ?>">Delete</a>
+                                <?php if ($item["isActive"]):?>
+                                    <i class="fas fa-check"></i>
+                                <?php else:?>
+                                    <i class="fas fa-times"></i>
+                                <?php endif;?>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="category-edit.php?id=<?php echo $item["id"] ?>">Edit</a>
+                                <a class="btn btn-danger btn-sm" href="category-delete.php?id=<?php echo $item["id"] ?>">Delete</a>
                             </td>
 
                         </tr>

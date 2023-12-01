@@ -29,6 +29,7 @@
                         <th>Title</th>
                         <th>Description</th>
                         <th>Url</th>
+                        <th>Category</th>
                         <th style="width:100px;" >is-Active</th>
                         <th style="width:150px;" ></th>
                     </tr>
@@ -48,6 +49,9 @@
                             </td>
                             <td>
                                 <?php echo $movies["url"]?>
+                            </td>
+                            <td>
+                                <?php echo $movies["name"]?>
                             </td>
                             <td>
                                 <?php if ($movies["isActive"]):?>

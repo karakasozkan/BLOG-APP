@@ -51,7 +51,7 @@ function createUser(string $username,string $password,string $name,string $email
 function getBlogs()
 {
     include "ayar.php";
-    $query="SELECT * FROM blogs";
+    $query="SELECT b.id,b.title,b.description,b.url,b.imageUrl,b.isActive, c.name FROM blogs b  inner join categories c on b.category_id=c.id ";
     $result = mysqli_query($connection,$query);
     mysqli_close($connection);
     

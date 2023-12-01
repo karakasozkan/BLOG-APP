@@ -38,48 +38,6 @@
     ],
     "movies": [
         {
-            "id": 2,
-            "title": "film 2",
-            "description": "film 2 a\u00e7\u0131klama",
-            "url": "film-2",
-            "image-url": "2.jpeg",
-            "likes": 0,
-            "comments": 0,
-            "is-active": false,
-            "image_url": "2.jpeg"
-        },
-        {
-            "id": 3,
-            "title": "film 3",
-            "description": "film 3 a\u00e7\u0131klama",
-            "url": "film-3",
-            "image-url": "3.jpeg",
-            "likes": 5,
-            "comments": 0,
-            "is-active": true,
-            "image_url": "3.jpeg"
-        },
-        {
-            "id": 4,
-            "title": "film 4",
-            "description": "film 4 a\u00e7\u0131klama",
-            "image-url": "3.jpeg",
-            "url": "film-4",
-            "likes": 0,
-            "comments": 0,
-            "is-active": false
-        },
-        {
-            "id": 5,
-            "title": "film 5",
-            "description": "film 5 a\u00e7\u0131klama",
-            "image-url": "2.jpeg",
-            "url": "film-5",
-            "likes": 0,
-            "comments": 0,
-            "is-active": true
-        },
-        {
             "id": 6,
             "title": "film 6",
             "description": "film 6 a\u00e7\u0131klama",
@@ -88,6 +46,36 @@
             "likes": 0,
             "comments": 0,
             "is-active": true
+        },
+        {
+            "id": 7,
+            "title": "Film 7",
+            "description": "Film 7 aciklama",
+            "url": "film-7",
+            "image-url": "3.jpeg",
+            "likes": 0,
+            "comments": 0,
+            "is-active": true
+        },
+        {
+            "id": 8,
+            "title": "Film 8",
+            "description": "Film 8 aciklama",
+            "url": "film-8",
+            "image-url": "1.jpeg",
+            "likes": 0,
+            "comments": 0,
+            "is-active": true
+        },
+        {
+            "id": 9,
+            "title": "film-1",
+            "description": "film-1 aciklama",
+            "url": "film-1",
+            "image-url": "3.jpeg",
+            "likes": 0,
+            "comments": 0,
+            "is-active": false
         }
     ],
     "categories": [

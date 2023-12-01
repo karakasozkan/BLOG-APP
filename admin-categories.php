@@ -17,7 +17,7 @@
 
             <div class="card mb-1">
                 <div class="card-body">
-                    <a href="blog-creativ.php" class="btn btn-primary">New Blog</a>
+                    <a href="category-create.php" class="btn btn-primary">New Category</a>
                 </div>    
             </div>
 
@@ -25,44 +25,32 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th style="width:80px;" >Image</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Url</th>
-                        <th>Category</th>
+                        <th style="width:80px;" >ID</th>
+                        <th>Category name</th>
                         <th style="width:100px;" >is-Active</th>
-                        <th style="width:150px;" ></th>
+                        <th style="width:130px;" ></th>
                     </tr>
 
                 </thead>
                 <tbody>
-                    <?php   $result= getBlogs(); while($movies=mysqli_fetch_assoc($result)):?>
+                    <?php   $result= getCategories(); while($item=mysqli_fetch_assoc($result)):?>
                         <tr>
                             <td>
-                                <img src="img/<?php echo $movies["imageUrl"]?>" alt="" class="img-fluid">
+                                <?php echo $item["id"]?>
                             </td>
                             <td>
-                                <?php echo $movies["title"]?>
+                                <?php echo $item["name"]?>
                             </td>
                             <td>
-                                <?php echo htmlspecialchars_decode($movies["description"]);?>
-                            </td>
-                            <td>
-                                <?php echo $movies["url"]?>
-                            </td>
-                            <td>
-                                <?php echo $movies["name"]?>
-                            </td>
-                            <td>
-                                <?php if ($movies["isActive"]):?>
+                                <?php if ($item["isActive"]):?>
                                     <i class="fas fa-check"></i>
                                 <?php else:?>
                                     <i class="fas fa-times"></i>
                                 <?php endif;?>
                             </td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="blog-edit.php?id=<?php echo $movies["id"] ?>">Edit</a>
-                                <a class="btn btn-danger btn-sm" href="blog-delete.php?id=<?php echo $movies["id"] ?>">Delete</a>
+                                <a class="btn btn-primary btn-sm" href="category-edit.php?id=<?php echo $item["id"] ?>">Edit</a>
+                                <a class="btn btn-danger btn-sm" href="category-delete.php?id=<?php echo $item["id"] ?>">Delete</a>
                             </td>
 
                         </tr>

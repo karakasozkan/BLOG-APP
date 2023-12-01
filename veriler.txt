@@ -1,7 +1,0 @@
-film 1|film 1 açıklama|1.jpeg|film-1|0|0|0
-film 2|film 2 açıklama|2.jpeg|film-2|0|0|0
-film 3|film 3 açıklama|3.jpeg|film-3|0|0|0
-Film 4|Film 4 aciklama|3.jpeg|film-4|0|0|0
-Film 5|Film 5|2.jpeg|film-5|0|0|0
-Film 6|Film 6 aciklama|2.jpeg|film-6|0|0|0
-Rock in der Region|Rock in der Region|1.jpeg|rock-in-der-region|0|0|0

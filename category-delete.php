@@ -3,11 +3,11 @@
     require "libs/functions.php";  
 
     $id=$_GET["id"];
-    if (deleteblog($id))
+    if (deleteCategory($id))
     {
-        $_SESSION["message"]=$id." ID Blog deleted";
+        $_SESSION["message"]=$id." ID Category deleted";
         $_SESSION["type"] = "danger";
-        header('Location: admin-blogs.php');  
+        header('Location: admin-categories.php');  
     }
     else
     {
